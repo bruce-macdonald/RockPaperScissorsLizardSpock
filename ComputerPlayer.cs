@@ -14,7 +14,7 @@ namespace RPSLS
         {
             // Generate a random number based on the lenght of the list
             // User the random number you generated as an index number to grab a random value out of the list of gestures
-            int randomNumber = r.Next(5);
+            int randomNumber = r.Next(gestures.Count);
             chosenGesture = gestures[randomNumber];
             Console.WriteLine($"Computer has chosen{chosenGesture}");
         }
