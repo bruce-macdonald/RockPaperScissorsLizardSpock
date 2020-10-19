@@ -16,7 +16,7 @@ namespace RPSLS
         {
             // Display the options
             DisplayGestures();
-            // Get the users input and confrim that it is a valid choice (Make sure you dont accept somthing that is not a gesture)
+            // Get the users input and confirm that it is a valid choice (Make sure you dont accept somthing that is not a gesture)
             int response = Convert.ToInt32(Console.ReadLine());
             //chosenGesture = gestures[response]; same as swiutch, but won't reprompt
 
@@ -51,8 +51,9 @@ namespace RPSLS
 
         public void DisplayGestures()
         {
+            Console.WriteLine("Please Choose a Gesture to use against your opponent!");
             for (int i = 0; i < gestures.Count; i++)
-            {
+            {               
                 Console.WriteLine($"{i}): {gestures[i]}\n");
             }
         }

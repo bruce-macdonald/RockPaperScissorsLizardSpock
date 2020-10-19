@@ -15,6 +15,7 @@ namespace RPSLS
         {
             gestures = new List<string>() {"Rock", "Paper", "Scissors", "Lizard", "Spock" };
             playerScore = 0;
+            chosenGesture = null;
         }
 
         public abstract void ChooseGesture();

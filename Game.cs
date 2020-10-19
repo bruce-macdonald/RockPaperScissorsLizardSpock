@@ -29,14 +29,11 @@ namespace RPSLS
 
         public Game()
         {
-            //one player game constructor(HumanPlayer vs ComputerPlayer)
-        }
-
-
-        //public Game()
-        //{
-        //    //two player game constructor(HumanPlayer vs HumanPlayer)
-        //}
+            Introduction();
+            DecidePlayerTypes();
+            CompareGestures();
+            DeclareGameWinner();
+        }       
 
         public void DecidePlayerTypes()
         {
@@ -45,7 +42,8 @@ namespace RPSLS
             Console.WriteLine("Press 2 to play another human");
             string userInput = Console.ReadLine();
             switch (userInput)
-            {   case "1": playerOne = new HumanPlayer();
+            {   case "1": 
+                    playerOne = new HumanPlayer();
                     playerTwo = new ComputerPlayer();
                     break;
                 case "2":
@@ -59,44 +57,65 @@ namespace RPSLS
 
         public void CompareGestures()
         {
-            if (playerOne.chosenGesture == playerTwo.chosenGesture)
+            while (playerOne.playerScore < 2 || playerTwo.playerScore < 2)
             {
-                Console.WriteLine("It's a tie!\n Choose again!");
                 playerOne.ChooseGesture();
                 playerTwo.ChooseGesture();
+
+                if (playerOne.chosenGesture == playerTwo.chosenGesture)
+            {
+                Console.WriteLine("It's a tie!\n Choose again!");               
             }
             else if (playerOne.chosenGesture == playerOne.gestures[0]) //playerOne gestures rock
             {
                 
                 if (playerTwo.chosenGesture == playerTwo.gestures[2] || playerTwo.chosenGesture == playerTwo.gestures[3])
                 {
-                    playerOne.playerScore++;
+                    Console.WriteLine($"{playerOne.chosenGesture} beats {playerTwo.chosenGesture}!");
+                    Console.WriteLine($"Player one score: {playerOne.playerScore}");
+                    Console.WriteLine($"Player two score: {playerTwo.playerScore}");
+                        playerOne.playerScore++;
                 }
-                else if (playerTwo.chosenGesture == playerTwo.gestures[1] || playerTwo.chosenGesture == playerTwo.gestures[4]) ;
+                else if (playerTwo.chosenGesture == playerTwo.gestures[1] || playerTwo.chosenGesture == playerTwo.gestures[4])
                 {
-                    playerTwo.playerScore++;
+                        Console.WriteLine($"{playerTwo.chosenGesture} beats {playerOne.chosenGesture}!");
+                        Console.WriteLine($"Player one score: {playerOne.playerScore}");
+                        Console.WriteLine($"Player two score: {playerTwo.playerScore}");
+                        playerTwo.playerScore++;
                 }
             }
             else if (playerOne.chosenGesture == playerOne.gestures[1]) //player one gestures paper
             {
                 if (playerTwo.chosenGesture == playerTwo.gestures[0] || playerTwo.chosenGesture == playerTwo.gestures[4])
                 {
-                    playerOne.playerScore++;
+                        Console.WriteLine($"{playerOne.chosenGesture} beats {playerTwo.chosenGesture}!");
+                        Console.WriteLine($"Player one score: {playerOne.playerScore}");
+                        Console.WriteLine($"Player two score: {playerTwo.playerScore}");
+                        playerOne.playerScore++;
                 }
                 else if (playerTwo.chosenGesture == playerTwo.gestures[2] || playerTwo.chosenGesture == playerTwo.gestures[3])
                 {
-                    playerTwo.playerScore++;
+                        Console.WriteLine($"{playerTwo.chosenGesture} beats {playerOne.chosenGesture}!");
+                        Console.WriteLine($"Player one score: {playerOne.playerScore}");
+                        Console.WriteLine($"Player two score: {playerTwo.playerScore}");
+                        playerTwo.playerScore++;
                 }
             }
             else if (playerOne.chosenGesture == playerOne.gestures[2]) //playerOne gestures scissors
             {
                 if (playerTwo.chosenGesture == playerTwo.gestures[1] || playerTwo.chosenGesture == playerTwo.gestures[3])
                 {
-                    playerOne.playerScore++;
+                        Console.WriteLine($"{playerOne.chosenGesture} beats {playerTwo.chosenGesture}!");
+                        Console.WriteLine($"Player one score: {playerOne.playerScore}");
+                        Console.WriteLine($"Player two score: {playerTwo.playerScore}");
+                        playerOne.playerScore++;
                 }
                 else if (playerTwo.chosenGesture == playerTwo.gestures[0] || playerTwo.chosenGesture == playerTwo.gestures[4])
                 {
-                    playerTwo.playerScore++;
+                        Console.WriteLine($"{playerTwo.chosenGesture} beats {playerOne.chosenGesture}!");
+                        Console.WriteLine($"Player one score: {playerOne.playerScore}");
+                        Console.WriteLine($"Player two score: {playerTwo.playerScore}");
+                        playerTwo.playerScore++;
                 }
 
 
@@ -106,11 +125,17 @@ namespace RPSLS
                     
                     if (playerTwo.chosenGesture == playerTwo.gestures[1] || playerTwo.chosenGesture == playerTwo.gestures[4])
                     {
-                        playerOne.playerScore++;
+                            Console.WriteLine($"{playerOne.chosenGesture} beats {playerTwo.chosenGesture}!");
+                            Console.WriteLine($"Player one score: {playerOne.playerScore}");
+                            Console.WriteLine($"Player two score: {playerTwo.playerScore}");
+                            playerOne.playerScore++;
                     }
-                    else if (playerTwo.chosenGesture == playerTwo.gestures[0] || playerTwo.chosenGesture == playerTwo.gestures[2]);
+                    else if (playerTwo.chosenGesture == playerTwo.gestures[0] || playerTwo.chosenGesture == playerTwo.gestures[2])
                     {
-                        playerTwo.playerScore++;
+                            Console.WriteLine($"{playerTwo.chosenGesture} beats {playerOne.chosenGesture}!");
+                            Console.WriteLine($"Player one score: {playerOne.playerScore}");
+                            Console.WriteLine($"Player two score: {playerTwo.playerScore}");
+                            playerTwo.playerScore++;
                     }
                 }
 
@@ -119,20 +144,37 @@ namespace RPSLS
 
                     if (playerTwo.chosenGesture == playerTwo.gestures[0] || playerTwo.chosenGesture == playerTwo.gestures[2])
                     {
-                        playerOne.playerScore++;
+                            Console.WriteLine($"{playerOne.chosenGesture} beats {playerTwo.chosenGesture}!");
+                            Console.WriteLine($"Player one score: {playerOne.playerScore}");
+                            Console.WriteLine($"Player two score: {playerTwo.playerScore}");
+                            playerOne.playerScore++;
                     }
-                    else if (playerTwo.chosenGesture == playerTwo.gestures[1] || playerTwo.chosenGesture == playerTwo.gestures[3]);
+                    else if (playerTwo.chosenGesture == playerTwo.gestures[1] || playerTwo.chosenGesture == playerTwo.gestures[3])
                     {
-                        playerTwo.playerScore++;
+                            Console.WriteLine($"{playerTwo.chosenGesture} beats {playerOne.chosenGesture}!");
+                            Console.WriteLine($"Player one score: {playerOne.playerScore}");
+                            Console.WriteLine($"Player two score: {playerTwo.playerScore}");
+                            playerTwo.playerScore++;
                     }
                 }
-
-
-
-
+            }
             }
 
         }
+        public void DeclareGameWinner()
+        {
+            if (playerOne.playerScore == 2 && playerTwo.playerScore <= 2)
+            {
+                Console.WriteLine("The Winner is Player One!");
+            }
+
+            if (playerTwo.playerScore == 2 && playerOne.playerScore <= 2)
+            {
+                Console.WriteLine("The Winner is Player Two!");
+            }
+        }
+
+
 
 
     }
